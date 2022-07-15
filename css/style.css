@@ -1,0 +1,20 @@
+
+.container{
+	border: 1px solid lightblue;
+	background-color:aliceblue;
+}
+
+.nav{
+	background: darkcyan;
+
+}
+
+.nav-link{
+	color: #fff;
+}
+
+.nav-link:hover{
+	color: #fff;
+	background:sandybrown;
+}
+
