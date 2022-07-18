@@ -67,7 +67,7 @@ if (!empty($_REQUEST['phmsg'])) {
 
 
 $result=view('emp_tble');
-$count=num($result);
+$count=count($result);
 if ($count>0) {
     ?>
     <table border="1" class="table table-striped">
@@ -82,25 +82,28 @@ if ($count>0) {
             </tr>   
         </thead>
     <?php
-    while ($array=assoc($result)) {
+    $data=view('emp_tble');
+    
+    $i=0;
+    while($i<count($data)) {
       ?>
       
         <tbody>
             <tr>
-            <td><?php echo $array['nam'] ; ?></td></td>
-            <td><?php echo $array['email'] ; ?></td>
-            <td><?php echo $array['ph_name'] ; ?></td>
-            <td><?php echo $array['addres'] ; ?></td>
+            <td><?php echo $data[$i]['name'] ; ?></td></td>
+            <td><?php echo $data[$i]['email'] ; ?></td>
+            <td><?php echo $data[$i]['ph_name'] ; ?></td>
+            <td><?php echo $data[$i]['address'] ; ?></td>
             <td>
                 
-               <a href="action/editform.php?id=<?php echo $array['id'] ?>"><input type="button" value="Edit" class="btn btn-primary" ></a>
-               <a href="action/delete.php?id=<?php echo $array['id']?>"><input type="submit" value="Delete" class="btn btn-danger"></a>
+                <a href="action/editform.php?id=<?php echo $data[$i]['id'] ?>"><input type="submit" value="Edit" class="btn btn-primary" ></a>
+               <a href="action/delete.php?id=<?php echo $data[$i]['id']?>"><input type="submit" value="Delete" class="btn btn-danger"></a>
        
             </td>
             </tr>
         
         </tbody>
- <?php } ?>
+ <?php $i++; } ?>
       </table>
       </div>
       <?php
